@@ -11,6 +11,9 @@
 
 * Beeline is
 A smart compass
+** Ride Free
+[[./demo.png]]
+
 * How Does It Work?
 - HTML5 Geolocation
 - HTML5 Orientation
