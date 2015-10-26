@@ -19,7 +19,7 @@ A smart compass
 * Demo
 Follow along at:
 
-http://krisajenkins.github.io/beeline-demo/
+https://krisajenkins.github.io/beeline-demo/
 
 * How Is It Made?
 ** Elm
@@ -72,7 +72,7 @@ noResults =
 * Beeline Links
 
 | Slides    | https://krisajenkins.github.io/beeline-geodev |
-| Demo      | http://krisajenkins.github.io/beeline-demo/   |
-| Source    | http://github.com/krisajenkins/beeline-demo/  |
+| Demo      | https://krisajenkins.github.io/beeline-demo/  |
+| Source    | https://github.com/krisajenkins/beeline-demo/ |
 | Breakdown | http://blog.jenkster.com                      |
 | Learn!    | http://www.meetup.com/West-London-Hack-Night/ |
