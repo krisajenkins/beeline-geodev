@@ -11,7 +11,7 @@
 
 * Beeline is
 A smart compass
-* How Does It Work
+* How Does It Work?
 - HTML5 Geolocation
 - HTML5 Orientation
 - ArcGIS Geocoding
@@ -20,7 +20,6 @@ A smart compass
 Follow along at:
 
 http://krisajenkins.github.io/beeline-demo/
-
 
 * How Is It Made?
 ** Elm
