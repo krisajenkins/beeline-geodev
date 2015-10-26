@@ -1,0 +1,47 @@
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_history:t
+#+REVEAL_THEME: black
+#+REVEAL_TRANS: convex
+#+REVEAL_EXTRA_CSS:
+#+COPYRIGHT: © Kris Jenkins, 2015
+#+AUTHOR:
+#+TITLE: Beeline
+#+EMAIL: @krisajenkins
+
+* What's Beeline
+* Demo
+Follow along at:
+
+http://krisajenkins.github.io/beeline-demo/
+
+* How Does It Work
+* How Is It Made?
+** Elm
+** Elm...
+- Compiles to JavaScript.
+- Functional.
+- Statically-typed.
+- A bit like Haskell (but easier!)
+- A bit like React (but better!)
+
+* Beeline Links
+
+Live Demo
+
+http://krisajenkins.github.io/beeline-demo/
+
+Source Code
+
+http://github.com/krisajenkins/beeline-demo/
+
+In-Depth Breakdown
+
+http://blog.jenkster.com
+
+These Slides
+
+
+
+Learn!
+
+http://www.meetup.com/West-London-Hack-Night/
