@@ -6,7 +6,7 @@
 #+REVEAL_EXTRA_CSS:
 #+COPYRIGHT: © Kris Jenkins, 2015
 #+AUTHOR:
-#+TITLE: Beeline
+#+TITLE: GeoHack Day: Beeline
 #+EMAIL: @krisajenkins
 
 * Beeline is
@@ -75,6 +75,7 @@ noResults =
 * Beeline Links
 
 | Slides    | https://krisajenkins.github.io/beeline-geodev |
+| Twitter   | @krisajenkins                                 |
 | Demo      | https://krisajenkins.github.io/beeline-demo/  |
 | Source    | https://github.com/krisajenkins/beeline-demo/ |
 | Breakdown | http://blog.jenkster.com                      |
