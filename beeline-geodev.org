@@ -26,22 +26,8 @@ http://krisajenkins.github.io/beeline-demo/
 
 * Beeline Links
 
-Live Demo
-
-http://krisajenkins.github.io/beeline-demo/
-
-Source Code
-
-http://github.com/krisajenkins/beeline-demo/
-
-In-Depth Breakdown
-
-http://blog.jenkster.com
-
-These Slides
-
-
-
-Learn!
-
-http://www.meetup.com/West-London-Hack-Night/
+| Demo      | http://krisajenkins.github.io/beeline-demo/   |
+| Source    | http://github.com/krisajenkins/beeline-demo/  |
+| Breakdown | http://blog.jenkster.com                      |
+| Slides    | https://krisajenkins.github.io/beeline-geodev |
+| Learn!    | http://www.meetup.com/West-London-Hack-Night/ |
