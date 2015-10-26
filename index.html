@@ -30,12 +30,27 @@
 
 <section>
 <section id="slide-orgheadline1">
-<h2 id="orgheadline1">What's Beeline</h2>
+<h2 id="orgheadline1">Beeline is</h2>
+<p>
+A smart compass
+</p>
 </section>
 </section>
 <section>
 <section id="slide-orgheadline2">
-<h2 id="orgheadline2">Demo</h2>
+<h2 id="orgheadline2">How Does It Work</h2>
+<ul>
+<li>HTML5 Geolocation</li>
+<li>HTML5 Orientation</li>
+<li>ArcGIS Geocoding</li>
+<li>Actual Maths</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline3">
+<h2 id="orgheadline3">Demo</h2>
 <p>
 Follow along at:
 </p>
@@ -44,17 +59,13 @@ Follow along at:
 <a href="http://krisajenkins.github.io/beeline-demo/">http://krisajenkins.github.io/beeline-demo/</a>
 </p>
 
+
 </section>
 </section>
 <section>
-<section id="slide-orgheadline3">
-<h2 id="orgheadline3">How Does It Work</h2>
-</section>
-</section>
-<section>
-<section id="slide-orgheadline6">
-<h2 id="orgheadline6">How Is It Made?</h2>
-<div class="outline-text-2" id="text-orgheadline6">
+<section id="slide-orgheadline10">
+<h2 id="orgheadline10">How Is It Made?</h2>
+<div class="outline-text-2" id="text-orgheadline10">
 </div></section>
 <section id="slide-orgheadline4">
 <h3 id="orgheadline4">Elm</h3>
@@ -71,10 +82,63 @@ Follow along at:
 </ul>
 
 </section>
+<section id="slide-orgheadline9">
+<h3 id="orgheadline9">A Little Bit Of Code</h3>
+<div class="outline-text-3" id="text-orgheadline9">
+</div></section>
+<section id="slide-orgheadline6">
+<h4 id="orgheadline6">REST</h4>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #F92672; font-style: italic;">findCandidates</span> : <span style="color: #66D9EF;">String</span> -&gt; <span style="color: #66D9EF;">Effects</span> <span style="color: #66d9ef;">(</span><span style="color: #66D9EF;">Result</span> <span style="color: #66D9EF;">Error</span> <span style="color: #a6e22e;">(</span><span style="color: #66D9EF;">List</span> <span style="color: #66D9EF;">Candidate</span><span style="color: #a6e22e;">)</span><span style="color: #66d9ef;">)</span>
+<span style="color: #F92672; font-style: italic;">findCandidates</span> term =
+  <span style="color: #E6DB74;">"http://geocode.arcgis.com"</span>
+    ++ <span style="color: #E6DB74;">"/arcgis/rest/services/World/GeocodeServer"</span>
+    ++ <span style="color: #E6DB74;">"/findAddressCandidates"</span>
+    ++ <span style="color: #E6DB74;">"?f=json&amp;outFields=City&amp;singleLine="</span> ++ uriEncode term
+  |&gt; <span style="color: #66D9EF;">Http</span>.get decodeFindAddressCandidates
+  |&gt; asEffect
+</pre>
+</div>
+
+</section>
+<section id="slide-orgheadline7">
+<h4 id="orgheadline7">JSON</h4>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #66D9EF;">type</span> <span style="color: #66D9EF;">alias</span> <span style="color: #66D9EF;">Candidate</span> =
+  <span style="color: #66d9ef;">{</span>address: <span style="color: #66D9EF;">String</span>
+  <span style="color: #66D9EF;">,</span>score : <span style="color: #66D9EF;">Float</span>
+  <span style="color: #66D9EF;">,</span>location: <span style="color: #66D9EF;">LatLng</span>
+  <span style="color: #66D9EF;">,</span>attributes : <span style="color: #66D9EF;">Attributes</span><span style="color: #66d9ef;">}</span>
+
+<span style="color: #F92672; font-style: italic;">decodeCandidate</span> : <span style="color: #66D9EF;">Decoder</span> <span style="color: #66D9EF;">Candidate</span>
+<span style="color: #F92672; font-style: italic;">decodeCandidate</span> =
+  object4 <span style="color: #66D9EF;">Candidate</span>
+    <span style="color: #66d9ef;">(</span><span style="color: #E6DB74;">"address"</span>    := string<span style="color: #66d9ef;">)</span>
+    <span style="color: #66d9ef;">(</span><span style="color: #E6DB74;">"score"</span>      := float<span style="color: #66d9ef;">)</span>
+    <span style="color: #66d9ef;">(</span><span style="color: #E6DB74;">"location"</span>   := decodeLocation<span style="color: #66d9ef;">)</span>
+    <span style="color: #66d9ef;">(</span><span style="color: #E6DB74;">"attributes"</span> := decodeAttributes<span style="color: #66d9ef;">)</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-orgheadline8">
+<h4 id="orgheadline8">Rendering</h4>
+<div class="org-src-container">
+
+<pre  class="src src-elm"><span style="color: #F92672; font-style: italic;">noResults</span> : <span style="color: #66D9EF;">Html</span>
+<span style="color: #F92672; font-style: italic;">noResults</span> =
+  div <span style="color: #66d9ef;">[</span>class <span style="color: #E6DB74;">"alert alert-warning"</span><span style="color: #66d9ef;">]</span>
+      <span style="color: #66d9ef;">[</span>text <span style="color: #E6DB74;">"No results found."</span><span style="color: #66d9ef;">]</span>
+</pre>
+</div>
+
+</section>
 </section>
 <section>
-<section id="slide-orgheadline7">
-<h2 id="orgheadline7">Beeline Links</h2>
+<section id="slide-orgheadline11">
+<h2 id="orgheadline11">Beeline Links</h2>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -84,6 +148,11 @@ Follow along at:
 <col  class="org-left" />
 </colgroup>
 <tbody>
+<tr>
+<td class="org-left">Slides</td>
+<td class="org-left"><a href="https://krisajenkins.github.io/beeline-geodev">https://krisajenkins.github.io/beeline-geodev</a></td>
+</tr>
+
 <tr>
 <td class="org-left">Demo</td>
 <td class="org-left"><a href="http://krisajenkins.github.io/beeline-demo/">http://krisajenkins.github.io/beeline-demo/</a></td>
@@ -97,11 +166,6 @@ Follow along at:
 <tr>
 <td class="org-left">Breakdown</td>
 <td class="org-left"><a href="http://blog.jenkster.com/">http://blog.jenkster.com/</a></td>
-</tr>
-
-<tr>
-<td class="org-left">Slides</td>
-<td class="org-left"><a href="https://krisajenkins.github.io/beeline-geodev">https://krisajenkins.github.io/beeline-geodev</a></td>
 </tr>
 
 <tr>
